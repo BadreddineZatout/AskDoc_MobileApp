@@ -18,5 +18,14 @@
         android:id="@+id/authFragment"
         android:name="com.example.askdoc.AuthFragment"
         android:label="fragment_auth"
-        tools:layout="@layout/fragment_auth" />
+        tools:layout="@layout/fragment_auth" >
+        <action
+            android:id="@+id/action_authFragment_to_listDoc"
+            app:destination="@id/listDoc" />
+    </fragment>
+    <fragment
+        android:id="@+id/listDoc"
+        android:name="com.example.askdoc.ListDoc"
+        android:label="fragment_list_doc"
+        tools:layout="@layout/fragment_list_doc" />
 </navigation>
