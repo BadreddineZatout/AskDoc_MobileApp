@@ -1,6 +1,5 @@
-package com.example.askdoc
+package com.example.askdoc.adapters
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -12,11 +11,17 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.askdoc.R
+import com.example.askdoc.models.Doctor
 
 class Docs_Adapter(val context: Context,var data:List<Doctor>):RecyclerView.Adapter<MyViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(context).inflate(R.layout.docitem, parent, false))
+        return MyViewHolder(
+            LayoutInflater.from(
+                context
+            ).inflate(R.layout.docitem, parent, false)
+        )
 
     }
 
@@ -66,7 +71,7 @@ class Docs_Adapter(val context: Context,var data:List<Doctor>):RecyclerView.Adap
 class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val name = view.findViewById<TextView>(R.id.name) as TextView
     val tel = view.findViewById<TextView>(R.id.tel) as TextView
-    val spec = view.findViewById<TextView>(R.id.specialite1) as TextView
+    val spec = view.findViewById<TextView>(R.id.specialite) as TextView
     val img = view.findViewById(R.id.image) as ImageView
     val map = view.findViewById(R.id.map) as ImageView
     val el = view.findViewById(R.id.element) as ConstraintLayout

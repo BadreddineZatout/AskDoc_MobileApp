@@ -1,8 +1,9 @@
-package com.example.askdoc
+package com.example.askdoc.models
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.example.askdoc.models.Booking
 import java.util.*
 
 @Entity(foreignKeys = arrayOf(

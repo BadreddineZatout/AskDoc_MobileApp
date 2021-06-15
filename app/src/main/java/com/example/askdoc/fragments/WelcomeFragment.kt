@@ -1,4 +1,4 @@
-package com.example.askdoc
+package com.example.askdoc.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import com.example.askdoc.R
 import kotlinx.android.synthetic.main.fragment_welcome.*
 
 /**
@@ -25,7 +26,9 @@ class WelcomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         AppName.setOnClickListener {
-            requireActivity().findNavController(R.id.graph).navigate(R.id.action_welcomeFragment_to_authFragment)
+            requireActivity().findNavController(R.id.graph).navigate(
+                R.id.action_welcomeFragment_to_authFragment
+            )
         }
     }
 }

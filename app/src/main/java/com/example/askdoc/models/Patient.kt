@@ -1,4 +1,4 @@
-package com.example.askdoc
+package com.example.askdoc.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
