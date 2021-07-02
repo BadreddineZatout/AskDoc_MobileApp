@@ -25,10 +25,6 @@ class WelcomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        AppName.setOnClickListener {
-            requireActivity().findNavController(R.id.graph).navigate(
-                R.id.action_welcomeFragment_to_authFragment
-            )
-        }
+
     }
 }

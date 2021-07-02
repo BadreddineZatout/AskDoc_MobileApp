@@ -3,29 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/authFragment">
 
-    <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.example.askdoc.fragments.WelcomeFragment"
-        android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
-        <action
-            android:id="@+id/action_welcomeFragment_to_authFragment"
-            app:destination="@id/authFragment" />
-    </fragment>
     <fragment
         android:id="@+id/authFragment"
         android:name="com.example.askdoc.fragments.AuthFragment"
         android:label="fragment_auth"
-        tools:layout="@layout/fragment_auth" >
-        <action
-            android:id="@+id/action_authFragment_to_listDoc"
-            app:destination="@id/listDoc" />
-    </fragment>
-    <fragment
-        android:id="@+id/listDoc"
-        android:name="com.example.askdoc.fragments.ListDoc"
-        android:label="fragment_list_doc"
-        tools:layout="@layout/fragment_list_doc" />
+        tools:layout="@layout/fragment_auth" />
 </navigation>
