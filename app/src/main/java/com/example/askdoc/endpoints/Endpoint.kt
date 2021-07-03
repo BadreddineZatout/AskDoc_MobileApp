@@ -6,6 +6,6 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface Endpoint {
-    @POST("patient/Auth")
+    @POST("patient/auth")
     fun AuthPatient(@Body auth:Auth):Call<Patient>
 }
