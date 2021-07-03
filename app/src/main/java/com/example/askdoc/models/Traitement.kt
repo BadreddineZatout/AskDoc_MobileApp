@@ -17,7 +17,8 @@ data class Traitement (
     val treatmentDescription:String,
     val treatmentBeginDate: Date?,
     val treatmentEndDate: Date?,
-    val bookingId:Long)
+    val bookingId:Long,
+    val isOffline:Boolean)
 {
 
 }
