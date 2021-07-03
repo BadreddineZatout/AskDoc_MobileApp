@@ -3,7 +3,9 @@ package com.example.askdoc
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.DatePicker
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_home.*
 import java.util.*
 
@@ -20,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
         bookingButton.setOnClickListener{
             val dpd = DatePickerDialog(this,DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
                 dateView.setText(""+mDay+"/"+ (mMonth.toInt()+1)+"/"+mYear)
-                hourButton.isEnabled=true
+                hourButton.visibility= View.VISIBLE
             },year,month,day)
             dpd.show()
         }
