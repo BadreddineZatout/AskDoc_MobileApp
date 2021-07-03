@@ -38,9 +38,9 @@ class Docs_Adapter(val context: Context,var data:List<Doctor>):RecyclerView.Adap
             context.startActivity(intent)
         }
         holder.map.setOnClickListener{view ->
-            val lat = data[position].lat
+            val ltd = data[position].ltd
             val lng = data[position].lng
-            val geolocation = Uri.parse("geo:$lat,$lng")
+            val geolocation = Uri.parse("geo:$ltd,$lng")
             val intent = Intent(Intent.ACTION_VIEW, geolocation)
             context.startActivity(intent)
         }

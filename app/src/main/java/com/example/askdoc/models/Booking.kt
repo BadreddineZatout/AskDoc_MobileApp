@@ -6,13 +6,18 @@ import androidx.room.PrimaryKey
 import java.util.*
 @Entity(foreignKeys = arrayOf(
     ForeignKey(entity = Doctor::class, parentColumns = arrayOf("doctorId"),
-    childColumns = arrayOf("doctorId"), onDelete = ForeignKey.CASCADE)
+    childColumns = arrayOf("doctorId"), onDelete = ForeignKey.CASCADE),
+    ForeignKey(entity = Patient::class, parentColumns = arrayOf("patientId"),
+        childColumns = arrayOf("patientId"), onDelete = ForeignKey.CASCADE)
 ))
 data class Booking (
     @PrimaryKey
     val bookingId:Long,
     val bookingDate: String?,
-    val bookingTime: String,
-    val doctorId:Long)
+    val bookingHour:Int,
+    val doctorId:Long,
+    val patientId:Long,
+    val codeQR:String
+    )
 {
 }

@@ -5,8 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.askdoc.R
+import com.example.askdoc.models.Booking
+import com.example.askdoc.models.BookingsByDoctorVM
+import com.example.askdoc.services.RetrofitService
 import kotlinx.android.synthetic.main.fragment_choose_hour.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +69,46 @@ class ChooseHourFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         dateInFragment.setText(this.bookingDate.toString())
+        // getDoctorHours(1,this.bookingDate.toString())
+        val booking = Booking(4,"15-12-2012",8,1,1,"")
+        getDoctorHours(1,"15-12-2021")
+        /*val call = RetrofitService.endpoint.addBooking(booking)
+        call.enqueue(object :Callback<String> {
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Toast.makeText(chooseHourFragment.context,"une erreur1 s'est produite",Toast.LENGTH_SHORT ).show()
+            }
+
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                if(response.isSuccessful){
+                    print(response.body())
+                }
+                else {
+                    Toast.makeText(chooseHourFragment.context,"une erreur2 s'est produite",Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        })*/
+    }
+
+    private fun getDoctorHours(doctorId:Int,date:String){
+        val call= RetrofitService.endpoint.getBookingByDoctor(1,"15-12-2021")
+        call.enqueue(object :Callback<List<BookingsByDoctorVM>>{
+            override fun onFailure(call: Call<List<BookingsByDoctorVM>>, t: Throwable) {
+                Toast.makeText(chooseHourFragment.context,"une erreur1 s'est produite",Toast.LENGTH_SHORT ).show()
+            }
+
+            override fun onResponse(call: Call<List<BookingsByDoctorVM>>, response: Response<List<BookingsByDoctorVM>>) {
+                if(response.isSuccessful){
+                    val data=response.body()
+                    if (data!=null){
+                        // recyclerView.adapter = MyAdapter(this@MainActivity,data)
+                    }
+                }
+                else {
+                    Toast.makeText(chooseHourFragment.context,"une erreur2 s'est produite",Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        })
     }
 }

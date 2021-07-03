@@ -7,6 +7,16 @@ import java.io.Serializable
 data class Doctor(
     @PrimaryKey
     val doctorId:Int,
-    val name:String, val tel:String, val spec:String, val lat:Double,
-    val lng:Double, val exp:Int, val image:String): Serializable {
+    val name:String,
+    val tel:String,
+    val spec:String,
+    val startAt:Int,
+    val finishAt:Int,
+    val bookingsByHour:Int,
+    val ltd:Double,
+    val lng:Double,
+    val experience:Int,
+    val image:String
+) : Serializable {
+
 }
