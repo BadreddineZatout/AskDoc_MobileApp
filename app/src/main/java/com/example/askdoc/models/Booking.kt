@@ -11,7 +11,7 @@ import java.util.*
 data class Booking (
     @PrimaryKey
     val bookingId:Long,
-    val bookingDate: Date?,
+    val bookingDate: String?,
     val bookingTime: String,
     val doctorId:Long)
 {
