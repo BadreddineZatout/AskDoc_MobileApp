@@ -71,7 +71,7 @@ class ChooseHourFragment : Fragment() {
         dateInFragment.setText(this.bookingDate.toString())
         // getDoctorHours(1,this.bookingDate.toString())
         val booking = Booking(4,"15-12-2012",8,1,1,"")
-        getDoctorHours(1,"15-12-2021")
+        getDoctorHours(1,this.bookingDate.toString())
         /*val call = RetrofitService.endpoint.addBooking(booking)
         call.enqueue(object :Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
@@ -91,7 +91,7 @@ class ChooseHourFragment : Fragment() {
     }
 
     private fun getDoctorHours(doctorId:Int,date:String){
-        val call= RetrofitService.endpoint.getBookingByDoctor(1,"15-12-2021")
+        val call= RetrofitService.endpoint.getBookingByDoctor(doctorId,date)
         call.enqueue(object :Callback<List<BookingsByDoctorVM>>{
             override fun onFailure(call: Call<List<BookingsByDoctorVM>>, t: Throwable) {
                 Toast.makeText(chooseHourFragment.context,"une erreur1 s'est produite",Toast.LENGTH_SHORT ).show()
@@ -101,6 +101,7 @@ class ChooseHourFragment : Fragment() {
                 if(response.isSuccessful){
                     val data=response.body()
                     if (data!=null){
+                        Toast.makeText(chooseHourFragment.context,data[0].bookingHour.toString(),Toast.LENGTH_SHORT).show()
                         // recyclerView.adapter = MyAdapter(this@MainActivity,data)
                     }
                 }
