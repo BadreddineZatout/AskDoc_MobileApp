@@ -8,4 +8,5 @@ import retrofit2.http.*
 interface Endpoint {
     @POST("patient/auth")
     fun AuthPatient(@Body auth:Auth):Call<Patient>
+
 }

@@ -71,22 +71,18 @@ class ChooseDateFragment : Fragment() {
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
+        var date = ""
         bookingButton.setOnClickListener{
             val dpd = DatePickerDialog(chooseDateFragment.context,
                 DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
-                    dateView.setText(""+mDay+"/"+ (mMonth.toInt()+1)+"/"+mYear)
-                    hourButton.visibility= View.VISIBLE
+                    date = ""+mDay+"-"+ (mMonth.toInt()+1)+"-"+mYear
+                    if(savedInstanceState == null ){
+                        activity?.supportFragmentManager?.beginTransaction()
+                            ?.replace(R.id.homeActivity,ChooseHourFragment.newInstance(date.toString()))
+                            ?.commitNow()
+                    }
                 },year,month,day)
             dpd.show()
         }
-
-        hourButton.setOnClickListener {
-            if(savedInstanceState == null ){
-                activity?.supportFragmentManager?.beginTransaction()
-                    ?.replace(R.id.homeActivity,ChooseHourFragment.newInstance(dateView.text.toString()))
-                    ?.commitNow()
-            }
-        }
-        // TODO: Use the ViewModel
     }
 }
