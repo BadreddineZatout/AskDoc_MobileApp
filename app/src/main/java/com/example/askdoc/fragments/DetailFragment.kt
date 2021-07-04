@@ -27,6 +27,6 @@ class DetailFragment : Fragment() {
         phone.text="Numéro de téléphone: ${vm.doctor.tel}"
         spec.text="Spécialité: ${vm.doctor.spec}"
         exp.text="Années d'éxpérience: ${vm.doctor.exp.toString()} ans"
-        Glide.with(this).load("https://abae3311af59.eu.ngrok.io/"+vm.doctor.image).into(photoM)
+        Glide.with(this).load("https://askdoc-restapi.herokuapp.com/public/"+vm.doctor.image).into(photoM)
     }
 }
