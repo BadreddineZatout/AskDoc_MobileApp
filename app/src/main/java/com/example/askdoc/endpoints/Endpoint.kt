@@ -2,7 +2,6 @@ package com.example.askdoc.endpoints
 
 import com.example.askdoc.models.Auth
 import com.example.askdoc.models.Booking
-import com.example.askdoc.models.BookingsByDoctorVM
 import com.example.askdoc.models.Patient
 import retrofit2.Call
 import retrofit2.http.*
@@ -15,5 +14,5 @@ interface Endpoint {
     fun addBooking(@Body booking:Booking):Call<String>
 
     @GET("booking/findByDoctor/{id}/{date}")
-    fun getBookingByDoctor(@Path("id") id:Int,@Path("date") date:String):Call<List<BookingsByDoctorVM>>
+    fun getBookingByDoctor(@Path("id") id:Int,@Path("date") date:String):Call<List<Int>>
 }

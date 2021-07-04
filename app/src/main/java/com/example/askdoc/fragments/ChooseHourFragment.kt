@@ -1,14 +1,16 @@
 package com.example.askdoc.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.Toast
 import com.example.askdoc.R
 import com.example.askdoc.models.Booking
-import com.example.askdoc.models.BookingsByDoctorVM
 import com.example.askdoc.services.RetrofitService
 import kotlinx.android.synthetic.main.fragment_choose_hour.*
 import retrofit2.Call
@@ -68,7 +70,6 @@ class ChooseHourFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        dateInFragment.setText(this.bookingDate.toString())
         // getDoctorHours(1,this.bookingDate.toString())
         val booking = Booking(4,"15-12-2012",8,1,1,"")
         getDoctorHours(1,this.bookingDate.toString())
@@ -90,18 +91,58 @@ class ChooseHourFragment : Fragment() {
         })*/
     }
 
+    private class hoursAdapter(val context : Context,var data:List<Int>) : BaseAdapter() {
+
+        private val mContext:Context
+
+        init {
+            this.mContext = context
+        }
+
+        override fun getCount(): Int {
+            return data.size
+        }
+
+        override fun getItemId(position: Int): Long {
+            return position.toLong()
+        }
+
+        override fun getItem(position: Int): Any {
+            TODO("Not yet implemented")
+        }
+
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+            val inflater : LayoutInflater = LayoutInflater.from(mContext)
+            val view  : View = inflater.inflate(R.layout.choose_hour_list_item,null)
+
+            val hourBtn : Button = view.findViewById(R.id.hourItemBtn)
+            hourBtn.setText(data[position].toString())
+            hourBtn.setOnClickListener {
+                //
+            }
+
+            return view
+        }
+    }
+
     private fun getDoctorHours(doctorId:Int,date:String){
         val call= RetrofitService.endpoint.getBookingByDoctor(doctorId,date)
-        call.enqueue(object :Callback<List<BookingsByDoctorVM>>{
-            override fun onFailure(call: Call<List<BookingsByDoctorVM>>, t: Throwable) {
+        call.enqueue(object :Callback<List<Int>>{
+            override fun onFailure(call: Call<List<Int>>, t: Throwable) {
                 Toast.makeText(chooseHourFragment.context,"une erreur1 s'est produite",Toast.LENGTH_SHORT ).show()
             }
 
-            override fun onResponse(call: Call<List<BookingsByDoctorVM>>, response: Response<List<BookingsByDoctorVM>>) {
+            override fun onResponse(call: Call<List<Int>>, response: Response<List<Int>>) {
                 if(response.isSuccessful){
                     val data=response.body()
                     if (data!=null){
-                        Toast.makeText(chooseHourFragment.context,data[0].bookingHour.toString(),Toast.LENGTH_SHORT).show()
+                        try {
+                            chooseHourList.adapter = hoursAdapter(chooseHourFragment.context,data)
+                            // Toast.makeText(chooseHourFragment.context,data[0].bookingHour.toString(),Toast.LENGTH_SHORT).show()
+                        }
+                        catch (e:Exception){
+                            //
+                        }
                         // recyclerView.adapter = MyAdapter(this@MainActivity,data)
                     }
                 }
