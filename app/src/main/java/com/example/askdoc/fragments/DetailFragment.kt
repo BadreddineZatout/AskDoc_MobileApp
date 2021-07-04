@@ -33,6 +33,5 @@ class DetailFragment : Fragment() {
             view?.findNavController()?.navigate(R.id.action_detailFragment_to_conseilFragment2)
         }
 
-
     }
 }

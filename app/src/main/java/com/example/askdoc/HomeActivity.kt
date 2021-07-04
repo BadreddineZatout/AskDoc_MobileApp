@@ -8,7 +8,10 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
-
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.work.*
+import com.example.askdoc.workers.TreatmentWorker
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +19,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_baseline_login_24);// set drawable icon
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+        scheduleSync()
 
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -34,6 +38,12 @@ class HomeActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-
+    fun scheduleSync(){
+        val constraints = Constraints.Builder().
+        setRequiredNetworkType(NetworkType.CONNECTED).build()
+        val req = OneTimeWorkRequest.Builder(TreatmentWorker::class.java).
+        setConstraints(constraints).addTag("id").build()
+        val workManager = WorkManager.getInstance(this)
+        workManager.enqueueUniqueWork("work", ExistingWorkPolicy.REPLACE, req)
+    }
 }
