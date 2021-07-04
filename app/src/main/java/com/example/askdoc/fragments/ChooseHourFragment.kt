@@ -9,9 +9,13 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import com.example.askdoc.R
 import com.example.askdoc.models.Booking
 import com.example.askdoc.services.RetrofitService
+import kotlinx.android.synthetic.main.choose_hour_list_item.*
+import kotlinx.android.synthetic.main.choose_hour_list_item.view.*
+import kotlinx.android.synthetic.main.fragment_choose_date.*
 import kotlinx.android.synthetic.main.fragment_choose_hour.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -68,11 +72,18 @@ class ChooseHourFragment : Fragment() {
             }
     }
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         // getDoctorHours(1,this.bookingDate.toString())
-        val booking = Booking(4,"15-12-2012",8,1,1,"")
         getDoctorHours(1,this.bookingDate.toString())
+        /*hourItemBtn.setOnClickListener {
+            if(savedInstanceState == null ){
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.chooseHourFragment,BookinCreatedFragment.newInstance(it.getTag().toString()))
+                    ?.commitNow()
+            }
+        }*/
         /*val call = RetrofitService.endpoint.addBooking(booking)
         call.enqueue(object :Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
@@ -99,6 +110,9 @@ class ChooseHourFragment : Fragment() {
             this.mContext = context
         }
 
+        fun getAdapterContext():Context{
+            return this.mContext
+        }
         override fun getCount(): Int {
             return data.size
         }
@@ -116,11 +130,11 @@ class ChooseHourFragment : Fragment() {
             val view  : View = inflater.inflate(R.layout.choose_hour_list_item,null)
 
             val hourBtn : Button = view.findViewById(R.id.hourItemBtn)
-            hourBtn.setText(data[position].toString())
-            hourBtn.setOnClickListener {
-                //
-            }
-
+            hourBtn.setText(data[position].toString()+" H")
+            /*hourBtn.setOnClickListener {
+                var booking_created_f = BookinCreatedFragment.newInstance(data[position].toString())
+                var frag_mg =
+            }*/
             return view
         }
     }
