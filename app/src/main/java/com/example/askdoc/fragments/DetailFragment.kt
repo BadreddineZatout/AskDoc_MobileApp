@@ -23,7 +23,7 @@ class DetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val vm= ViewModelProvider(requireActivity()).get(DoctorVm::class.java)
-        nom.text="Nom: ${vm.doctor.name}"
+        nom.text="Docteur: ${vm.doctor.name}"
         phone.text="Numéro de téléphone: ${vm.doctor.tel}"
         spec.text="Spécialité: ${vm.doctor.spec}"
         exp.text="Années d'éxpérience: ${vm.doctor.exp.toString()} ans"

@@ -14,8 +14,6 @@ import com.bumptech.glide.Glide
 import com.example.askdoc.R
 import com.example.askdoc.models.Doctor
 import com.example.askdoc.models.DoctorVm
-import kotlinx.android.synthetic.main.docitem.view.*
-import java.util.*
 
 class MyAdapter(val context: Context,var data:List<Doctor>,val vm: DoctorVm):RecyclerView.Adapter<MyViewHolder>()
 {
