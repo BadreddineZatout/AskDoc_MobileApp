@@ -9,10 +9,11 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        if(savedInstanceState == null) {
+     /*   if(savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.homeActivity,ChooseDateFragment.newInstance())
                 .commitNow()
-        }
+        }*/
     }
+
 }

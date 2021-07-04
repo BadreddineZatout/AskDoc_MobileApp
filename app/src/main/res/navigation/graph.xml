@@ -3,11 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph"
-    app:startDestination="@id/authFragment">
+    app:startDestination="@id/chooseDateFragment3">
 
     <fragment
-        android:id="@+id/authFragment"
-        android:name="com.example.askdoc.fragments.AuthFragment"
-        android:label="fragment_auth"
-        tools:layout="@layout/fragment_auth" />
+        android:id="@+id/bookinCreatedFragment"
+        android:name="com.example.askdoc.fragments.BookinCreatedFragment"
+        android:label="fragment_bookin_created"
+        tools:layout="@layout/fragment_bookin_created" />
+    <fragment
+        android:id="@+id/chooseHourFragment2"
+        android:name="com.example.askdoc.fragments.ChooseHourFragment"
+        android:label="fragment_choose_hour"
+        tools:layout="@layout/fragment_choose_hour" >
+        <action
+            android:id="@+id/action_chooseHourFragment2_to_bookinCreatedFragment"
+            app:destination="@id/bookinCreatedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseDateFragment3"
+        android:name="com.example.askdoc.fragments.ChooseDateFragment"
+        android:label="fragment_choose_date"
+        tools:layout="@layout/fragment_choose_date" >
+        <action
+            android:id="@+id/action_chooseDateFragment3_to_chooseHourFragment2"
+            app:destination="@id/chooseHourFragment2" />
+    </fragment>
 </navigation>

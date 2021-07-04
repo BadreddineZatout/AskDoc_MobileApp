@@ -9,7 +9,10 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.findNavController
 import com.example.askdoc.R
 import com.example.askdoc.models.Booking
 import com.example.askdoc.services.RetrofitService
@@ -21,28 +24,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "bookingDate"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ChooseHourFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChooseHourFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var bookingDate: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            bookingDate = it.getString(ARG_PARAM1)
-            // param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var date = ""
+    private var doctorId = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,38 +37,13 @@ class ChooseHourFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_choose_hour, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param bookingDate Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ChooseHourFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(bookingDate: String) =
-            ChooseHourFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, bookingDate)
-                    // putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        // getDoctorHours(1,this.bookingDate.toString())
-        getDoctorHours(1,this.bookingDate.toString())
-        /*hourItemBtn.setOnClickListener {
-            if(savedInstanceState == null ){
-                activity?.supportFragmentManager?.beginTransaction()
-                    ?.replace(R.id.chooseHourFragment,BookinCreatedFragment.newInstance(it.getTag().toString()))
-                    ?.commitNow()
-            }
-        }*/
+        this.date = arguments?.getString("date").toString()
+        getDoctorHours(this.doctorId,this.date)
         /*val call = RetrofitService.endpoint.addBooking(booking)
         call.enqueue(object :Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
@@ -100,14 +60,19 @@ class ChooseHourFragment : Fragment() {
             }
 
         })*/
+
     }
 
-    private class hoursAdapter(val context : Context,var data:List<Int>) : BaseAdapter() {
+    private class hoursAdapter(val context : Context,var data:List<Int>,date:String ,doctorId: Int) : BaseAdapter() {
 
         private val mContext:Context
+        private val mDate:String
+        private val mDoctorId:Int
 
         init {
             this.mContext = context
+            mDate = date
+            mDoctorId =doctorId
         }
 
         fun getAdapterContext():Context{
@@ -131,10 +96,12 @@ class ChooseHourFragment : Fragment() {
 
             val hourBtn : Button = view.findViewById(R.id.hourItemBtn)
             hourBtn.setText(data[position].toString()+" H")
-            /*hourBtn.setOnClickListener {
-                var booking_created_f = BookinCreatedFragment.newInstance(data[position].toString())
-                var frag_mg =
-            }*/
+            hourBtn.setOnClickListener {view->
+                var hour = data[position].toString()
+                var bundle = bundleOf("date" to mDate,"hour" to hour,"doctorId" to mDoctorId.toString())
+                view.findNavController().navigate(R.id.action_chooseHourFragment2_to_bookinCreatedFragment,bundle)
+
+            }
             return view
         }
     }
@@ -151,7 +118,7 @@ class ChooseHourFragment : Fragment() {
                     val data=response.body()
                     if (data!=null){
                         try {
-                            chooseHourList.adapter = hoursAdapter(chooseHourFragment.context,data)
+                            chooseHourList.adapter = hoursAdapter(chooseHourFragment.context,data,date,doctorId)
                             // Toast.makeText(chooseHourFragment.context,data[0].bookingHour.toString(),Toast.LENGTH_SHORT).show()
                         }
                         catch (e:Exception){
