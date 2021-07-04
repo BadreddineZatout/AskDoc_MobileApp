@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ConseilFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <EditText
+            android:id="@+id/fname"
+            android:layout_width="305dp"
+            android:layout_height="127dp"
+            android:background="@drawable/custom_input"
+            android:gravity="top"
+            android:inputType="text|textMultiLine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.389" />
+
+        <Button
+            android:id="@+id/btnConseil"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp"
+            android:padding="15dp"
+            android:backgroundTint="@color/cardview_light_background"
+            android:drawableLeft="@android:drawable/ic_menu_send"
+            android:fontFamily="@font/ubuntu_mono"
+            android:text="Envoyer la Demende"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fname"
+            app:layout_constraintVertical_bias="0.205" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

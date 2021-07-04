@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.example.askdoc.R
 import com.example.askdoc.models.DoctorVm
@@ -28,5 +29,10 @@ class DetailFragment : Fragment() {
         spec.text="Spécialité: ${vm.doctor.spec}"
         exp.text="${vm.doctor.exp.toString()} ans d'expérience"
         Glide.with(this).load("https://dbouidaine.github.io/Medico_REST/images/"+vm.doctor.image).into(photoM)
+        btnConseil.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_detailFragment_to_conseilFragment2)
+        }
+
+
     }
 }

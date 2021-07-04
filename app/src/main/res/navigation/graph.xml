@@ -18,5 +18,14 @@
         android:id="@+id/detailFragment"
         android:name="com.example.askdoc.fragments.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_conseilFragment2"
+            app:destination="@id/conseilFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/conseilFragment2"
+        android:name="com.example.askdoc.fragments.ConseilFragment"
+        android:label="fragment_conseil"
+        tools:layout="@layout/fragment_conseil" />
 </navigation>
