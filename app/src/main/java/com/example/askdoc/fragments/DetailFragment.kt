@@ -26,7 +26,7 @@ class DetailFragment : Fragment() {
         nom.text="Docteur: ${vm.doctor.name}"
         phone.text="Numéro de téléphone: ${vm.doctor.tel}"
         spec.text="Spécialité: ${vm.doctor.spec}"
-        exp.text="${vm.doctor.exp.toString()} ans d'expérience"
-        Glide.with(this).load("https://dbouidaine.github.io/Medico_REST/images/"+vm.doctor.image).into(photoM)
+        exp.text="Années d'éxpérience: ${vm.doctor.exp.toString()} ans"
+        Glide.with(this).load("https://askdoc-restapi.herokuapp.com/public/"+vm.doctor.image).into(photoM)
     }
 }
