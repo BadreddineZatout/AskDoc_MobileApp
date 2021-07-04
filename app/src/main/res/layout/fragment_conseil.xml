@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btnEnvoyer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ConseilFragment">
@@ -11,7 +12,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/fname"
+            android:id="@+id/conseilText"
             android:layout_width="305dp"
             android:layout_height="127dp"
             android:background="@drawable/custom_input"
@@ -28,17 +29,17 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginBottom="16dp"
-            android:padding="15dp"
             android:backgroundTint="@color/cardview_light_background"
             android:drawableLeft="@android:drawable/ic_menu_send"
             android:fontFamily="@font/ubuntu_mono"
+            android:padding="15dp"
             android:text="Envoyer la Demende"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fname"
+            app:layout_constraintTop_toBottomOf="@+id/conseilText"
             app:layout_constraintVertical_bias="0.205" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
