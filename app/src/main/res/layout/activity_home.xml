@@ -5,6 +5,7 @@
     android:id="@+id/homeId"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".HomeActivity">
 
     <fragment
@@ -12,6 +13,7 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#F2F2F2"
         app:defaultNavHost="true"
         app:navGraph="@navigation/graph"
         tools:layout_editor_absoluteX="221dp"
