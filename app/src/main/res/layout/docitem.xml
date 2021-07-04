@@ -58,7 +58,6 @@
             card_view:layout_constraintHorizontal_bias="0.529"
             card_view:layout_constraintStart_toStartOf="@+id/guideline6"
             card_view:layout_constraintTop_toTopOf="parent" />
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image"
             android:layout_width="77dp"
