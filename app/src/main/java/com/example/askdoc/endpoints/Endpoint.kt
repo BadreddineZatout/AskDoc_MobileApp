@@ -1,6 +1,7 @@
 package com.example.askdoc.endpoints
 
 import com.example.askdoc.models.Auth
+import com.example.askdoc.models.Booking
 import com.example.askdoc.models.Conseil
 import com.example.askdoc.models.Doctor
 import com.example.askdoc.models.Patient
@@ -12,6 +13,11 @@ interface Endpoint {
     @POST("patient/auth")
     fun AuthPatient(@Body auth:Auth):Call<Patient>
 
+    @PUT("booking/")
+    fun addBooking(@Body booking:Booking):Call<String>
+
+    @GET("booking/findByDoctor/{id}/{date}")
+    fun getBookingByDoctor(@Path("id") id:Int,@Path("date") date:String):Call<List<Int>>
     @GET("doctor")
     fun getMedecins():Call<List<Doctor>>
 
