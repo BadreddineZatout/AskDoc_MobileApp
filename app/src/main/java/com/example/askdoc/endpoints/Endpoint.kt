@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface Endpoint {
-    @POST("patient/auth")
+    @POST("patient/Auth")
     fun AuthPatient(@Body auth:Auth):Call<Patient>
 
     @PUT("booking/")

@@ -40,7 +40,7 @@ class ChooseDateFragment : Fragment() {
                 DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
                     date = ""+mDay+"-"+ (mMonth.toInt()+1)+"-"+mYear
                     var bundle = bundleOf("date" to date)
-                    requireActivity().findNavController(R.id.main_graph).navigate(R.id.action_chooseDateFragment3_to_chooseHourFragment2,bundle)
+                    requireActivity().findNavController(R.id.nav_host).navigate(R.id.action_chooseDateFragment3_to_chooseHourFragment2,bundle)
                 },year,month,day)
             dpd.show()
         }
