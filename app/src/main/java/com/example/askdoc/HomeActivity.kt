@@ -8,25 +8,33 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.work.*
+import com.example.askdoc.models.DoctorVm
+import com.example.askdoc.models.Patient
+import com.example.askdoc.models.PatientVM
 import com.example.askdoc.workers.TreatmentWorker
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val patient = intent.getSerializableExtra("patient") as Patient
+        val vm= ViewModelProvider(this).get(PatientVM::class.java)
+        vm.patient = patient
         setContentView(R.layout.activity_home)
-        getSupportActionBar()?.setHomeAsUpIndicator(R.drawable.ic_baseline_login_24);// set drawable icon
-        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_login_24);// set drawable icon
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
         scheduleSync()
 
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.getItemId()) {
+        return when (item.itemId) {
             android.R.id.home -> {
                 val prefs = getSharedPreferences("Auth", Context.MODE_PRIVATE)
                 val connected = prefs.getBoolean("connected", false)
+
                 prefs.edit {
                     putBoolean("connected", false)
                 }
@@ -38,7 +46,7 @@ class HomeActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-    fun scheduleSync(){
+    private fun scheduleSync(){
         val constraints = Constraints.Builder().
         setRequiredNetworkType(NetworkType.CONNECTED).build()
         val req = OneTimeWorkRequest.Builder(TreatmentWorker::class.java).

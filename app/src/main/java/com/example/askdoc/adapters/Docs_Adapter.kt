@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -28,9 +29,7 @@ class MyAdapter(val context: Context, var data: List<Doctor>, val vm: DoctorVm):
         holder.nom.text = data[position].name
         holder.phone.text = data[position].tel
         holder.specialite.text = data[position].spec
-        Glide.with(context).load("https://dbouidaine.github.io/Medico_REST/images/" + data[position].image).into(
-            holder.photo
-        )
+        Glide.with(context).load("https://askdoc-restapi.herokuapp.com/public/"+data[position].image).into(holder.photo)
         holder.phone.setOnClickListener { view ->
             val uri = Uri.parse("tel:${holder.phone.text}")
             val intent = Intent(Intent.ACTION_CALL, uri)
