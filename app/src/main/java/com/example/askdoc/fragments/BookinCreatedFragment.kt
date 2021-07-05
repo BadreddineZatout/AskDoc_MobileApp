@@ -5,12 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.askdoc.R
+import com.example.askdoc.models.Booking
+import com.example.askdoc.models.DoctorVm
+import com.example.askdoc.models.PatientVM
+import com.example.askdoc.services.RetrofitService
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.journeyapps.barcodescanner.BarcodeEncoder
 import kotlinx.android.synthetic.main.fragment_bookin_created.*
+import kotlinx.android.synthetic.main.fragment_choose_hour.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,16 +36,16 @@ private const val ARG_PARAM3 = "doctorId"
  */
 class BookinCreatedFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var date: String? = null
-    private var hour: String? = null
-    private var doctorId: String? = null
+    private var date = ""
+    private var hour = ""
+    private var doctorId = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            date = it.getString(ARG_PARAM1)
-            hour = it.getString(ARG_PARAM2)
-            doctorId = it.getString(ARG_PARAM3)
+            date = it.getString(ARG_PARAM1).toString()
+            hour = it.getString(ARG_PARAM2).toString()
+            doctorId = it.getString(ARG_PARAM3).toString()
         }
     }
 
@@ -70,10 +81,35 @@ class BookinCreatedFragment : Fragment() {
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        bookingCreated.setText(" Date : "+date+" Hour : "+hour.toString()+" Doctor ID :"+doctorId)
-        generateQRCode(date+hour.toString()+doctorId.toString()+'1')
+        val vm= ViewModelProvider(requireActivity()).get(PatientVM::class.java)
+        val patientId = vm.patient.id
+        val QRString = "{date:"+date.toString()+",hour:"+hour.toString()+",+doctorId:"+doctorId.toString()+",patientId:"+patientId.toString()+"}"
+        bookingCreated.setText(QRString)
+        generateQRCode(QRString)
+        val patientName = vm.patient.name
         confirmCreateBooking.setOnClickListener { view ->
+            val booking=Booking(1,date,hour.toInt(),doctorId.toInt(),patientId,patientName,QRString)
+            val call = RetrofitService.endpoint.addBooking(booking)
+            call.enqueue(object : Callback<Any> {
+                override fun onFailure(call: Call<Any>, t: Throwable) {
+                    Toast.makeText(bookingCreatedFragment.context,"une erreur1 s'est produite", Toast.LENGTH_SHORT ).show()
+                }
 
+                override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                    if(response.isSuccessful){
+                        val data=response.body()!!
+                        if (data!=null){
+                            Toast.makeText(bookingCreatedFragment.context,"Booking Created Successfully",Toast.LENGTH_SHORT).show()
+                            view.findNavController().navigate(R.id.action_bookinCreatedFragment_to_listFragment)
+                        }
+                    }
+                    else {
+                        Toast.makeText(bookingCreatedFragment.context,"une erreur2 s'est produite",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+            })
         }
         // getDoctorHours(1,this.bookingDate.toString())
 

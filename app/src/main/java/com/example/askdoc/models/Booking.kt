@@ -12,13 +12,13 @@ import java.util.*
 ))*/
 data class Booking (
     @PrimaryKey
-    val bookingId:Long,
+    val bookingId:Int,
     val bookingDate: String?,
     val bookingHour:Int,
-    val doctorId:Long,
-    val patientId:Long,
+    val doctorId:Int,
+    val patientId:Int,
     val patientName:String?,
-    val codeQR:String
+    val CodeQR:String
     )
 {
 }
