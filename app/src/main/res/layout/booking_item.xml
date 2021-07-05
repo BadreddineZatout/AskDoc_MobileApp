@@ -28,8 +28,8 @@
             android:layout_marginStart="10dp"
             android:text="NomPrenom"
             android:textAlignment="viewStart"
-            android:textColor="#000000"
-            android:textSize="15dp"
+            android:textColor="#4760F0"
+            android:textSize="16sp"
             card_view:layout_constraintBottom_toBottomOf="@+id/bookingTextView"
             card_view:layout_constraintStart_toEndOf="@+id/bookingTextView"
             card_view:layout_constraintTop_toTopOf="@+id/bookingTextView" />
@@ -40,8 +40,8 @@
             android:layout_height="21dp"
             android:text="Date"
             android:textAlignment="viewStart"
-            android:textColor="#000000"
-            android:textSize="15dp"
+            android:textColor="#4760F0"
+            android:textSize="16sp"
             card_view:layout_constraintBottom_toBottomOf="@+id/bookingTextView3"
             card_view:layout_constraintStart_toStartOf="@+id/bookingItemDoctor"
             card_view:layout_constraintTop_toTopOf="@+id/bookingTextView3" />
@@ -52,8 +52,8 @@
             android:layout_height="21dp"
             android:text="Heure"
             android:textAlignment="viewStart"
-            android:textColor="#000000"
-            android:textSize="15dp"
+            android:textColor="#4760F0"
+            android:textSize="16sp"
             card_view:layout_constraintBottom_toBottomOf="@+id/bookingTextView2"
             card_view:layout_constraintStart_toStartOf="@+id/bookingItemDoctor"
             card_view:layout_constraintTop_toTopOf="@+id/bookingTextView2" />
@@ -66,7 +66,7 @@
             android:layout_marginTop="30dp"
             android:text="Medecin :"
             android:textColor="#000000"
-            android:textSize="20dp"
+            android:textSize="16sp"
             card_view:layout_constraintEnd_toStartOf="@+id/bookingItemDoctor"
             card_view:layout_constraintHorizontal_bias="0.5"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -79,7 +79,7 @@
             android:layout_marginTop="10dp"
             android:text="Heure:"
             android:textColor="#000000"
-            android:textSize="20dp"
+            android:textSize="16sp"
             card_view:layout_constraintStart_toStartOf="@+id/bookingTextView3"
             card_view:layout_constraintTop_toBottomOf="@+id/bookingTextView3" />
 
@@ -90,9 +90,11 @@
             android:layout_marginTop="30dp"
             android:text="Date:"
             android:textColor="#000000"
-            android:textSize="20dp"
+            android:textSize="16sp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="@+id/bookingTextView"
-            card_view:layout_constraintTop_toBottomOf="@+id/bookingTextView" />
+            card_view:layout_constraintTop_toBottomOf="@+id/bookingTextView"
+            card_view:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

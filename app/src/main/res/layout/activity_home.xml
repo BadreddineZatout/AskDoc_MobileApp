@@ -7,14 +7,15 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     tools:context=".HomeActivity">
+
     <fragment
         android:id="@+id/nav_host"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F2F2F2"
+        android:background="#4760F0"
         app:defaultNavHost="true"
         app:navGraph="@navigation/graph"
-        tools:layout_editor_absoluteX="221dp"
-        tools:layout_editor_absoluteY="259dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

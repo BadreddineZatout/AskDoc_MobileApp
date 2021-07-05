@@ -22,24 +22,39 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.389" />
+            app:layout_constraintVertical_bias="0.615" />
 
         <Button
             android:id="@+id/btnConseil"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/orange_FEAE47"
+            android:background="@drawable/btnrendezvous"
             android:fontFamily="@font/ubuntu_mono"
             android:padding="15dp"
-            android:text="Envoyer la Demende"
+            android:text="  Valider  "
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/conseilText"
-            app:layout_constraintVertical_bias="0.205" />
+            app:layout_constraintVertical_bias="0.554" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corner_rounded"
+            android:text="   Demander un conseil   "
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/conseilText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.871" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -9,21 +9,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/bookingCreated"
-        android:layout_width="288dp"
-        android:layout_height="58dp"
-        android:fontFamily="@font/ubuntu_mono"
-        android:gravity="center"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.646" />
-
     <ImageView
         android:id="@+id/QRImage"
         android:layout_width="250dp"
@@ -41,7 +26,7 @@
         android:layout_width="263dp"
         android:layout_height="66dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/blue_56BDE6"
+        android:background="@drawable/btnrendezvous"
         android:fontFamily="@font/ubuntu_mono"
         android:text="Confirmer Rendez-Vosu"
         app:layout_constraintBottom_toBottomOf="parent"
