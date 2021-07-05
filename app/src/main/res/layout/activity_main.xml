@@ -13,12 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:background="#434852"
+        android:background="#F3F3F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.564">
+        app:layout_constraintVertical_bias="0.851">
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.685"
         tools:context=".MainActivity">
@@ -65,13 +65,14 @@
             android:layout_height="53dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="16dp"
-            android:background="#56BDE6"
+            android:background="@drawable/corner_rounded"
             android:fontFamily="@font/ubuntu_mono"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
             android:paddingRight="20dp"
             android:paddingBottom="10dp"
-            android:text="Connexion"
+            android:text="Se connecter"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
             app:cornerRadius="12dp"
@@ -82,29 +83,29 @@
             app:layout_constraintVertical_bias="0.35" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="117dp"
-        android:layout_height="105dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.188"
-        app:srcCompat="@drawable/man" />
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/ubuntu_mono"
+        android:fontFamily="serif"
         android:text="AskDoc"
-        android:textColor="@color/blue_56BDE6"
+        android:textColor="#4760F0"
         android:textSize="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.088" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="129dp"
+        android:layout_height="119dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.526"
+        app:srcCompat="@drawable/askdoctor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

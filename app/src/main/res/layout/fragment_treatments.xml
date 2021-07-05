@@ -6,28 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".fragments.TreatmentsFragment">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Mes Traitements"
-        android:textColor="#000000"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/treatmentsRecView"
         android:layout_width="350dp"
         android:layout_height="500dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btntrt"
+        android:text="  Mes traitements   "
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/treatmentsRecView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.888" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

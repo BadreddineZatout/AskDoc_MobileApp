@@ -84,7 +84,7 @@ class BookinCreatedFragment : Fragment() {
         val vm= ViewModelProvider(requireActivity()).get(PatientVM::class.java)
         val patientId = vm.patient.id
         val QRString = "{date:"+date.toString()+",hour:"+hour.toString()+",+doctorId:"+doctorId.toString()+",patientId:"+patientId.toString()+"}"
-        bookingCreated.setText(QRString)
+        //bookingCreated.setText(QRString)
         generateQRCode(QRString)
         val patientName = vm.patient.name
         confirmCreateBooking.setOnClickListener { view ->
