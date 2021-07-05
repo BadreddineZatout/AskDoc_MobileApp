@@ -7,12 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.askdoc.R
-import com.example.askdoc.models.DoctorVm
 import com.example.askdoc.models.PatientVM
 import com.example.askdoc.models.Traitement
 import com.example.askdoc.models.TreatmentVM
@@ -78,9 +76,8 @@ class TreatmentsFragment : Fragment() {
         treatmentsRecView.layoutManager = LinearLayoutManager(requireActivity())
 
         // Patient ViewModel to get id
-        val vm_doctor= ViewModelProvider(requireActivity()).get(PatientVM::class.java)
-        val patientId = vm_doctor.patient.id
-        Toast.makeText(requireActivity(),"doctor ID :"+patientId.toString(),Toast.LENGTH_SHORT).show()
+        val vm_patient= ViewModelProvider(requireActivity()).get(PatientVM::class.java)
+        val patientId = vm_patient.patient.id
 
         // Get Treatments
         val data = RoomService.appDatabase.getTraitementDao().getTreatments(patientId)
@@ -107,7 +104,7 @@ class TreatmentsFragment : Fragment() {
 
     }
     class TreatmentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val disease = view.findViewById<TextView>(R.id.treatmentDisease) as TextView
+        val disease = view.findViewById<TextView>(R.id.bookingItemDoctor) as TextView
         val description = view.findViewById<TextView>(R.id.treatmentDescription) as TextView
         val beginDate = view.findViewById<TextView>(R.id.treatmentBeginDate) as TextView
         val endDate = view.findViewById<TextView>(R.id.treatmentEndDate) as TextView

@@ -18,7 +18,7 @@
         android:layout_height="175dp">
 
         <TextView
-            android:id="@+id/treatmentDisease"
+            android:id="@+id/bookingItemDoctor"
             android:layout_width="110dp"
             android:layout_height="19dp"
             android:layout_marginStart="10dp"
@@ -26,9 +26,9 @@
             android:textAlignment="viewStart"
             android:textColor="#000000"
             android:textSize="15dp"
-            card_view:layout_constraintBottom_toBottomOf="@+id/treatmentItemTextView"
-            card_view:layout_constraintStart_toEndOf="@+id/treatmentItemTextView"
-            card_view:layout_constraintTop_toTopOf="@+id/treatmentItemTextView" />
+            card_view:layout_constraintBottom_toBottomOf="@+id/bookingTextView"
+            card_view:layout_constraintStart_toEndOf="@+id/bookingTextView"
+            card_view:layout_constraintTop_toTopOf="@+id/bookingTextView" />
 
         <TextView
             android:id="@+id/treatmentDescription"
@@ -43,7 +43,7 @@
             card_view:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/treatmentItemTextView"
+            android:id="@+id/bookingTextView"
             android:layout_width="81dp"
             android:layout_height="27dp"
             android:layout_marginStart="10dp"
@@ -64,7 +64,7 @@
             android:textColor="#000000"
             android:textSize="15dp"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/treatmentItemTextView" />
+            card_view:layout_constraintTop_toBottomOf="@+id/bookingTextView" />
 
         <TextView
             android:id="@+id/treatmentItemTextView3"
@@ -76,7 +76,7 @@
             android:textColor="#000000"
             android:textSize="10dp"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintTop_toTopOf="@+id/treatmentDisease" />
+            card_view:layout_constraintTop_toTopOf="@+id/bookingItemDoctor" />
 
         <TextView
             android:id="@+id/treatmentBeginDate"

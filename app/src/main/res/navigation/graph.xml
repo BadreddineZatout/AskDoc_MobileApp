@@ -65,5 +65,14 @@
         android:id="@+id/bookingsFragment"
         android:name="com.example.askdoc.fragments.BookingsFragment"
         android:label="fragment_bookings"
-        tools:layout="@layout/fragment_bookings" />
+        tools:layout="@layout/fragment_bookings" >
+        <action
+            android:id="@+id/action_bookingsFragment_to_showQRCodeFragment"
+            app:destination="@id/showQRCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showQRCodeFragment"
+        android:name="com.example.askdoc.fragments.ShowQRCodeFragment"
+        android:label="fragment_show_q_r_code"
+        tools:layout="@layout/fragment_show_q_r_code" />
 </navigation>
