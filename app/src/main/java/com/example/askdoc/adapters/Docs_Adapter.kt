@@ -16,7 +16,7 @@ import com.example.askdoc.R
 import com.example.askdoc.models.Doctor
 import com.example.askdoc.models.DoctorVm
 
-class MyAdapter(val context: Context,var data:List<Doctor>,val vm: DoctorVm):RecyclerView.Adapter<MyViewHolder>()
+class MyAdapter(val context: Context, var data: List<Doctor>, val vm: DoctorVm):RecyclerView.Adapter<MyViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(LayoutInflater.from(context).inflate(R.layout.docitem, parent, false))
@@ -38,8 +38,8 @@ class MyAdapter(val context: Context,var data:List<Doctor>,val vm: DoctorVm):Rec
         holder.localisation.setOnClickListener { view ->
             val latitude = data[position].lat
             val longitude = data[position].lng
-            val geoLocation = Uri.parse("geo:$latitude,$longitude")
-            val intent = Intent(Intent.ACTION_VIEW, geoLocation)
+            val gmmIntentUri = Uri.parse("google.navigation:q=$latitude,$longitude")
+            val intent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
             context.startActivity(intent)
 
         }
@@ -47,8 +47,6 @@ class MyAdapter(val context: Context,var data:List<Doctor>,val vm: DoctorVm):Rec
             vm.doctor=data[position]
             view?.findNavController()?.navigate(R.id.action_listFragment_to_detailFragment)
         }
-
-
     }
 
 }
