@@ -9,13 +9,14 @@ data class Doctor(
     val doctorId:Int,
     val name:String,
     val tel:String,
+    val pdw:String,
     val spec:String,
     val startAt:Int,
     val finishAt:Int,
     val bookingsByHour:Int,
-    val ltd:Double,
+    val lat:Double,
     val lng:Double,
-    val experience:Int,
+    val exp:Int,
     val image:String
 ) : Serializable {
 

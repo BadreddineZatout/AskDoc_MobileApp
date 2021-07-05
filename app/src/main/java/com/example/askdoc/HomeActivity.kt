@@ -17,13 +17,18 @@ import com.example.askdoc.models.DoctorVm
 import com.example.askdoc.models.Patient
 import com.example.askdoc.models.PatientVM
 import com.example.askdoc.workers.TreatmentWorker
+import com.google.gson.Gson
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val patient = intent.getSerializableExtra("patient") as Patient
+        /*val pref = getSharedPreferences("Auth", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json = pref.getString("patient", "")
+        val patient = gson.fromJson(json, Patient::class.java)
+        Toast.makeText(this, json, Toast.LENGTH_SHORT).show()
         val vm= ViewModelProvider(this).get(PatientVM::class.java)
-        vm.patient = patient
+        vm.patient = patient*/
         setContentView(R.layout.activity_home)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_login_24);// set drawable icon
         supportActionBar?.setDisplayHomeAsUpEnabled(true);

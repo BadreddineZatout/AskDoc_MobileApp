@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.example.askdoc.R
+import com.example.askdoc.baseUrl
 import com.example.askdoc.models.DoctorVm
 import kotlinx.android.synthetic.main.fragment_detail.*
 
@@ -28,7 +29,7 @@ class DetailFragment : Fragment() {
         phone.text="Numéro de téléphone: ${vm.doctor.tel}"
         spec.text="Spécialité: ${vm.doctor.spec}"
         exp.text="${vm.doctor.exp.toString()} ans d'expérience"
-        Glide.with(this).load("https://dbouidaine.github.io/Medico_REST/images/"+vm.doctor.image).into(photoM)
+        Glide.with(this).load(baseUrl+vm.doctor.image).into(photoM)
         btnConseil.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_detailFragment_to_conseilFragment2)
         }

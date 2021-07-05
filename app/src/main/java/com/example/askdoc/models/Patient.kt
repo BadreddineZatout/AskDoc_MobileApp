@@ -9,6 +9,7 @@ data class Patient (
     @PrimaryKey
     val patientId:Int,
     val name:String,
-    val tel:String
+    val tel:String,
+    val pdw:String
 ): Serializable {
 }

@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_detailFragment_to_conseilFragment2"
             app:destination="@id/conseilFragment2" />
+        <action
+            android:id="@+id/action_detailFragment_to_chooseDateFragment3"
+            app:destination="@id/chooseDateFragment3" />
     </fragment>
     <fragment
         android:id="@+id/conseilFragment2"

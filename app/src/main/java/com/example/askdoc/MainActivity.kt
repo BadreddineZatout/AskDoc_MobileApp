@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.askdoc.models.Auth
 import com.example.askdoc.models.Patient
 import com.example.askdoc.services.RetrofitService
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_auth.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,8 +37,10 @@ class MainActivity : AppCompatActivity() {
                         if (response?.isSuccessful) {
                             val data = response.body()!!
                             pref.edit().putBoolean("connected", true).apply()
+                            val gson:Gson = Gson()
+                            val patient:String = gson.toJson(data)
+                            pref.edit().putString("patient", patient).apply()
                             val intent = Intent(this@MainActivity, HomeActivity::class.java)
-                            intent.putExtra("patient", data)
                             startActivity(intent)
                             finish()
                         } else {

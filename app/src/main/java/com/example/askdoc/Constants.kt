@@ -1,7 +1,5 @@
 package com.example.askdoc
 
 // Online
-const val baseUrl = "https://medico-rest.herokuapp.com/api/"
+const val baseUrl = "https://askdoc-restapi.herokuapp.com/"
 
-// Local
-//const val baseUrl = "https://a790c5f6b415.ngrok.io/api/"
