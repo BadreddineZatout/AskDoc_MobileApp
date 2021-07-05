@@ -1,21 +1,25 @@
 package com.example.askdoc.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.work.*
-import com.bumptech.glide.Glide
 import com.example.askdoc.R
 import com.example.askdoc.models.Conseil
 import com.example.askdoc.models.DoctorVm
 import com.example.askdoc.models.PatientVM
+import com.example.askdoc.services.RetrofitService
 import com.example.askdoc.services.RoomService
 import com.example.askdoc.workers.ConseilWorker
 import kotlinx.android.synthetic.main.fragment_conseil.*
-import kotlinx.android.synthetic.main.fragment_detail.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ConseilFragment : Fragment() {
 
@@ -28,7 +32,8 @@ class ConseilFragment : Fragment() {
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        btnEnvoyer.setOnClickListener {
+        EnvoyerConseil.setOnClickListener {
+            Toast.makeText(requireActivity(), "sending...", Toast.LENGTH_SHORT).show()
             val vm= ViewModelProvider(requireActivity()).get(DoctorVm::class.java)
             val iddoc = vm.doctor.doctorId
             val vmpat= ViewModelProvider(requireActivity()).get(PatientVM::class.java)
