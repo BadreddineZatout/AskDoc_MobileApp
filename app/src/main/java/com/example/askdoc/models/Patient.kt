@@ -7,9 +7,9 @@ import java.io.Serializable
 @Entity
 data class Patient (
     @PrimaryKey
-    val id:Int,
+    val patientId:Int,
     val name:String,
     val tel:String,
-    val pdw:String
+    val pwd:String
 ): Serializable {
 }

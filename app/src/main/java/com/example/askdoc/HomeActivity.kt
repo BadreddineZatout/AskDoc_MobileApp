@@ -14,6 +14,7 @@ import com.example.askdoc.models.PatientVM
 import com.example.askdoc.services.RoomService
 import com.example.askdoc.workers.TreatmentWorker
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_bookin_created.*
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_login_24);// set drawable icon
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
-        scheduleSync()
+        scheduleSync(vm.patient.patientId)
 
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -47,13 +48,17 @@ class HomeActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-    private fun scheduleSync(){
+    private fun scheduleSync(patientId:Int){
         val constraints = Constraints.Builder().
         setRequiredNetworkType(NetworkType.CONNECTED).build()
-        val req = OneTimeWorkRequest.Builder(TreatmentWorker::class.java).
-        setConstraints(constraints).addTag("id").build()
+        var mWorker = OneTimeWorkRequest.Builder(TreatmentWorker::class.java)
+        val req = mWorker.setConstraints(constraints).addTag("id").build()
+        val data = Data.Builder()
+        data.putInt("patientId",patientId)
+        mWorker.setInputData(data.build())
         val workManager = WorkManager.getInstance(this)
         workManager.enqueueUniqueWork("work", ExistingWorkPolicy.REPLACE, req)
+        WorkManager.getInstance().enqueue(mWorker.build())
     }
 
 }

@@ -9,7 +9,7 @@ data class Doctor(
     val doctorId:Int,
     val name:String,
     val tel:String,
-    val pdw:String,
+    val pwd:String,
     val spec:String,
     val startAt:Int,
     val finishAt:Int,

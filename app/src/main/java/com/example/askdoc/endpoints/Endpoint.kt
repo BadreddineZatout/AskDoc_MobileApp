@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface Endpoint {
-    @POST("patient/Auth")
+    @POST("patient/auth")
     fun AuthPatient(@Body auth:Auth):Call<Patient>
 
     @POST("booking/")
@@ -21,12 +21,12 @@ interface Endpoint {
     @GET("doctor")
     fun getMedecins():Call<List<Doctor>>
 
-    @POST("conseil")
+    @POST("counsel")
     fun addConseil(@Body conseil: Conseil):Call<Any>
 
-    @GET("traitement/offline")
-    fun getAllTreaitementOffline():Call<List<Traitement>>
+    @GET("treatment/offline/{id}")
+    fun getAllTreaitementOffline(@Path ("id") id:Int):Call<List<Traitement>>
 
-    @PUT("traitement/offline")
-    fun updateOffline():Call<String>
+    @PUT("treatment/offline/{id}")
+    fun updateOffline(@Path ("id") id:Int ):Call<String>
 }

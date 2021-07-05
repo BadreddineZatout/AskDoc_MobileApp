@@ -17,10 +17,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.askdoc.R
 import com.example.askdoc.models.*
 import com.example.askdoc.services.RetrofitService
-import com.example.askdoc.services.RoomService
 import kotlinx.android.synthetic.main.fragment_bookin_created.*
 import kotlinx.android.synthetic.main.fragment_bookings.*
-import kotlinx.android.synthetic.main.fragment_treatments.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -81,7 +79,7 @@ class BookingsFragment : Fragment() {
 
         // Patient ViewModel to get id
         val vm_patient= ViewModelProvider(requireActivity()).get(PatientVM::class.java)
-        val patientId = vm_patient.patient.id
+        val patientId = vm_patient.patient.patientId
 
         // Get Treatments
         getBookings(patientId)

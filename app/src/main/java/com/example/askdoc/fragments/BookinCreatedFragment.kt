@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.askdoc.R
 import com.example.askdoc.models.Booking
-import com.example.askdoc.models.DoctorVm
 import com.example.askdoc.models.PatientVM
 import com.example.askdoc.services.RetrofitService
 import com.google.zxing.BarcodeFormat
@@ -82,7 +81,7 @@ class BookinCreatedFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val vm= ViewModelProvider(requireActivity()).get(PatientVM::class.java)
-        val patientId = vm.patient.id
+        val patientId = vm.patient.patientId
         val QRString = "{date:"+date.toString()+",hour:"+hour.toString()+",+doctorId:"+doctorId.toString()+",patientId:"+patientId.toString()+"}"
         bookingCreated.setText(QRString)
         generateQRCode(QRString)

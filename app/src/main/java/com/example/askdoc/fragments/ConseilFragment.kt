@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.work.*
-import com.bumptech.glide.Glide
 import com.example.askdoc.R
 import com.example.askdoc.models.Conseil
 import com.example.askdoc.models.DoctorVm
@@ -15,7 +14,6 @@ import com.example.askdoc.models.PatientVM
 import com.example.askdoc.services.RoomService
 import com.example.askdoc.workers.ConseilWorker
 import kotlinx.android.synthetic.main.fragment_conseil.*
-import kotlinx.android.synthetic.main.fragment_detail.*
 
 class ConseilFragment : Fragment() {
 
@@ -32,7 +30,7 @@ class ConseilFragment : Fragment() {
             val vm= ViewModelProvider(requireActivity()).get(DoctorVm::class.java)
             val iddoc = vm.doctor.doctorId
             val vmpat= ViewModelProvider(requireActivity()).get(PatientVM::class.java)
-            val c = Conseil(iddoc, vmpat.patient.id, conseilText.text.toString())
+            val c = Conseil(iddoc, vmpat.patient.patientId, conseilText.text.toString())
             RoomService.context = requireActivity()
             RoomService.appDatabase.getConseilDao().addConseil(c)
             scheduleSync()

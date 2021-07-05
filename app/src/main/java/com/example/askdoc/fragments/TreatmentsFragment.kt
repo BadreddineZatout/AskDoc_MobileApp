@@ -7,15 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.*
 import com.example.askdoc.R
 import com.example.askdoc.models.PatientVM
 import com.example.askdoc.models.Traitement
 import com.example.askdoc.models.TreatmentVM
 import com.example.askdoc.services.RoomService
-import kotlinx.android.synthetic.main.fragment_choose_hour.*
+import com.example.askdoc.workers.TreatmentWorker
 import kotlinx.android.synthetic.main.fragment_treatments.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -77,7 +79,7 @@ class TreatmentsFragment : Fragment() {
 
         // Patient ViewModel to get id
         val vm_patient= ViewModelProvider(requireActivity()).get(PatientVM::class.java)
-        val patientId = vm_patient.patient.id
+        val patientId = vm_patient.patient.patientId
 
         // Get Treatments
         val data = RoomService.appDatabase.getTraitementDao().getTreatments(patientId)
@@ -109,5 +111,6 @@ class TreatmentsFragment : Fragment() {
         val beginDate = view.findViewById<TextView>(R.id.treatmentBeginDate) as TextView
         val endDate = view.findViewById<TextView>(R.id.treatmentEndDate) as TextView
     }
+
 
 }
