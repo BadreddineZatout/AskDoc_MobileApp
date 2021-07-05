@@ -12,13 +12,14 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.askdoc.R
 import com.example.askdoc.models.Booking
+import com.example.askdoc.models.DoctorVm
 import com.example.askdoc.services.RetrofitService
 import kotlinx.android.synthetic.main.choose_hour_list_item.*
 import kotlinx.android.synthetic.main.choose_hour_list_item.view.*
-import kotlinx.android.synthetic.main.fragment_choose_date.*
 import kotlinx.android.synthetic.main.fragment_choose_hour.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,7 +28,7 @@ import retrofit2.Response
 
 class ChooseHourFragment : Fragment() {
     private var date = ""
-    private var doctorId = 1
+    private var doctorId = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +43,7 @@ class ChooseHourFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        this.doctorId=ViewModelProvider(requireActivity()).get(DoctorVm::class.java).doctor.doctorId
         this.date = arguments?.getString("date").toString()
         getDoctorHours(this.doctorId,this.date)
         /*val call = RetrofitService.endpoint.addBooking(booking)

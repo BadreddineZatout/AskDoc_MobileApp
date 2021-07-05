@@ -13,8 +13,8 @@ interface Endpoint {
     @POST("patient/Auth")
     fun AuthPatient(@Body auth:Auth):Call<Patient>
 
-    @PUT("booking/")
-    fun addBooking(@Body booking:Booking):Call<String>
+    @POST("booking/")
+    fun addBooking(@Body booking:Booking):Call<Any>
 
     @GET("booking/findByDoctor/{id}/{date}")
     fun getBookingByDoctor(@Path("id") id:Int,@Path("date") date:String):Call<List<Int>>

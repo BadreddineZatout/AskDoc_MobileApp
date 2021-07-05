@@ -9,7 +9,11 @@
         android:id="@+id/bookinCreatedFragment"
         android:name="com.example.askdoc.fragments.BookinCreatedFragment"
         android:label="fragment_bookin_created"
-        tools:layout="@layout/fragment_bookin_created" />
+        tools:layout="@layout/fragment_bookin_created" >
+        <action
+            android:id="@+id/action_bookinCreatedFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
     <fragment
         android:id="@+id/chooseHourFragment2"
         android:name="com.example.askdoc.fragments.ChooseHourFragment"
@@ -19,16 +23,7 @@
             android:id="@+id/action_chooseHourFragment2_to_bookinCreatedFragment"
             app:destination="@id/bookinCreatedFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/chooseDateFragment3"
-        android:name="com.example.askdoc.fragments.ChooseDateFragment"
-        android:label="fragment_choose_date"
-        tools:layout="@layout/fragment_choose_date" >
-        <action
-            android:id="@+id/action_chooseDateFragment3_to_chooseHourFragment2"
-            app:destination="@id/chooseHourFragment2" />
-    </fragment>
-    
+
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.askdoc.fragments.ListFragment"
@@ -47,8 +42,8 @@
             android:id="@+id/action_detailFragment_to_conseilFragment2"
             app:destination="@id/conseilFragment2" />
         <action
-            android:id="@+id/action_detailFragment_to_chooseDateFragment3"
-            app:destination="@id/chooseDateFragment3" />
+            android:id="@+id/action_detailFragment_to_chooseHourFragment2"
+            app:destination="@id/chooseHourFragment2" />
     </fragment>
     <fragment
         android:id="@+id/conseilFragment2"
