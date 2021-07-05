@@ -32,6 +32,12 @@
         <action
             android:id="@+id/action_listFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_treatmentsFragment"
+            app:destination="@id/treatmentsFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_bookingsFragment"
+            app:destination="@id/bookingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -50,4 +56,23 @@
         android:name="com.example.askdoc.fragments.ConseilFragment"
         android:label="fragment_conseil"
         tools:layout="@layout/fragment_conseil" />
+    <fragment
+        android:id="@+id/treatmentsFragment"
+        android:name="com.example.askdoc.fragments.TreatmentsFragment"
+        android:label="fragment_treatments"
+        tools:layout="@layout/fragment_treatments" />
+    <fragment
+        android:id="@+id/bookingsFragment"
+        android:name="com.example.askdoc.fragments.BookingsFragment"
+        android:label="fragment_bookings"
+        tools:layout="@layout/fragment_bookings" >
+        <action
+            android:id="@+id/action_bookingsFragment_to_showQRCodeFragment"
+            app:destination="@id/showQRCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showQRCodeFragment"
+        android:name="com.example.askdoc.fragments.ShowQRCodeFragment"
+        android:label="fragment_show_q_r_code"
+        tools:layout="@layout/fragment_show_q_r_code" />
 </navigation>

@@ -1,11 +1,27 @@
 package com.example.askdoc.fragments
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.askdoc.R
+import com.example.askdoc.models.Doctor
+import com.example.askdoc.models.DoctorVm
+import com.example.askdoc.models.Traitement
+import com.example.askdoc.models.TreatmentVM
+import kotlinx.android.synthetic.main.fragment_list.*
+import kotlinx.android.synthetic.main.fragment_treatments.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,4 +73,6 @@ class TraitementFragment : Fragment() {
                 }
             }
     }
+
+
 }

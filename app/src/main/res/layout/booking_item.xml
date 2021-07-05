@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    card_view:cardBackgroundColor="#F6F6F6"
+    card_view:cardElevation="2dp"
+    card_view:cardUseCompatPadding="true"
+    android:id="@+id/bookingItemCard"
+    card_view:contentPadding="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintHorizontal_bias="0.5"
+        card_view:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/bookingItemDoctor"
+            android:layout_width="190dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="10dp"
+            android:text="NomPrenom"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/bookingTextView"
+            card_view:layout_constraintStart_toEndOf="@+id/bookingTextView"
+            card_view:layout_constraintTop_toTopOf="@+id/bookingTextView" />
+
+        <TextView
+            android:id="@+id/bookingItemDate"
+            android:layout_width="190dp"
+            android:layout_height="21dp"
+            android:text="Date"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/bookingTextView3"
+            card_view:layout_constraintStart_toStartOf="@+id/bookingItemDoctor"
+            card_view:layout_constraintTop_toTopOf="@+id/bookingTextView3" />
+
+        <TextView
+            android:id="@+id/bookingItemHour"
+            android:layout_width="190dp"
+            android:layout_height="21dp"
+            android:text="Heure"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/bookingTextView2"
+            card_view:layout_constraintStart_toStartOf="@+id/bookingItemDoctor"
+            card_view:layout_constraintTop_toTopOf="@+id/bookingTextView2" />
+
+        <TextView
+            android:id="@+id/bookingTextView"
+            android:layout_width="81dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:text="Medecin :"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            card_view:layout_constraintEnd_toStartOf="@+id/bookingItemDoctor"
+            card_view:layout_constraintHorizontal_bias="0.5"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bookingTextView2"
+            android:layout_width="81dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="10dp"
+            android:text="Heure:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            card_view:layout_constraintStart_toStartOf="@+id/bookingTextView3"
+            card_view:layout_constraintTop_toBottomOf="@+id/bookingTextView3" />
+
+        <TextView
+            android:id="@+id/bookingTextView3"
+            android:layout_width="81dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="30dp"
+            android:text="Date:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            card_view:layout_constraintStart_toStartOf="@+id/bookingTextView"
+            card_view:layout_constraintTop_toBottomOf="@+id/bookingTextView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
