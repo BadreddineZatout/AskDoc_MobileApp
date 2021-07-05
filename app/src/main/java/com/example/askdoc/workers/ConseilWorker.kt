@@ -26,9 +26,9 @@ WorkerParameters) : ListenableWorker(ctx, workParamters) {
     }
     fun addConseils(conseil: Conseil){
         val call = RetrofitService.endpoint.addConseil(conseil)
-        call.enqueue(object: Callback<String> {
+        call.enqueue(object: Callback<Any> {
             @SuppressLint("RestrictedApi")
-            override fun onResponse(call: Call<String>, response: Response<String>) {
+            override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 if(response?.isSuccessful){
                     conseil.isSyncronized=1
                     RoomService.appDatabase.getConseilDao().updateConseil(conseil)
@@ -38,7 +38,7 @@ WorkerParameters) : ListenableWorker(ctx, workParamters) {
             }
 
             @SuppressLint("RestrictedApi")
-            override fun onFailure(call: Call<String>, t: Throwable) {
+            override fun onFailure(call: Call<Any>, t: Throwable) {
                 future.set(Result.retry())
             }
         })

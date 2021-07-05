@@ -22,7 +22,7 @@ interface Endpoint {
     fun getMedecins():Call<List<Doctor>>
 
     @POST("conseil")
-    fun addConseil(@Body conseil: Conseil):Call<String>
+    fun addConseil(@Body conseil: Conseil):Call<Any>
 
     @GET("traitement/offline")
     fun getAllTreaitementOffline():Call<List<Traitement>>
