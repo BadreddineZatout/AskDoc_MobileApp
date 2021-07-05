@@ -8,6 +8,7 @@
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical"
+    card_view:cardBackgroundColor="#FEAE47"
     card_view:cardElevation="5dp"
     card_view:cardUseCompatPadding="true"
     card_view:contentPadding="10dp">
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/ubuntu_mono"
             android:text="TextView"
+            android:textColor="#434852"
             android:textSize="18sp"
             card_view:layout_constraintBottom_toTopOf="@+id/textPhone"
             card_view:layout_constraintEnd_toStartOf="@+id/guideline5"
@@ -40,6 +42,7 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/ubuntu_mono"
             android:text="TextView"
+            android:textColor="#434852"
             android:textSize="18sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toStartOf="@+id/guideline5"
@@ -53,11 +56,13 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/ubuntu_mono"
             android:text="TextView"
+            android:textColor="#434852"
             android:textSize="18sp"
             card_view:layout_constraintEnd_toStartOf="@+id/guideline5"
             card_view:layout_constraintHorizontal_bias="0.529"
             card_view:layout_constraintStart_toStartOf="@+id/guideline6"
             card_view:layout_constraintTop_toTopOf="parent" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image"
             android:layout_width="77dp"
@@ -66,6 +71,7 @@
             android:layout_marginBottom="32dp"
             card_view:civ_border_color="#FF000000"
             card_view:civ_border_width="2dp"
+            card_view:civ_circle_background_color="#FEAE47"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintLeft_toLeftOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -76,11 +82,12 @@
             android:id="@+id/direction"
             android:layout_width="38dp"
             android:layout_height="31dp"
+            android:contentDescription="direction icon"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.75"
             card_view:layout_constraintStart_toStartOf="@+id/guideline5"
             card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.516"
             card_view:srcCompat="@drawable/ic_location" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -88,14 +95,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            card_view:layout_constraintGuide_begin="265dp" />
+            card_view:layout_constraintGuide_begin="234dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            card_view:layout_constraintGuide_begin="106dp" />
+            card_view:layout_constraintGuide_begin="112dp" />
 
         <View
             android:id="@+id/divider3"

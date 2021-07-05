@@ -13,6 +13,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="600dp"
+        android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,13 +40,14 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/ubuntu_mono"
             android:text="TextView"
+            android:textColor="@color/black_434852"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/spec"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintHorizontal_bias="0.345"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/photoM"
-            app:layout_constraintVertical_bias="0.575" />
+            app:layout_constraintVertical_bias="0.53999996" />
 
         <TextView
             android:id="@+id/phone"
@@ -53,6 +55,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/ubuntu_mono"
             android:text="TextView"
+            android:textColor="@color/black_434852"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/exp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -65,9 +68,10 @@
             android:id="@+id/exp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="192dp"
+            android:layout_marginBottom="200dp"
             android:fontFamily="@font/ubuntu_mono"
             android:text="TextView"
+            android:textColor="@color/black_434852"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -80,6 +84,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/ubuntu_mono"
             android:text="TextView"
+            android:textColor="@color/black_434852"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/phone"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -128,72 +133,39 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="28dp"
-            android:backgroundTint="@color/cardview_light_background"
-            android:drawableLeft="@android:drawable/ic_menu_my_calendar"
+            android:background="@color/blue_56BDE6"
             android:fontFamily="@font/ubuntu_mono"
+            android:hapticFeedbackEnabled="false"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="Prendre un rendez-vous"
+            android:textColor="@color/black_434852"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/button2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exp" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/cardview_light_background"
-            android:drawableLeft="@android:drawable/ic_menu_info_details"
+            android:background="@color/blue_56BDE6"
             android:fontFamily="@font/ubuntu_mono"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="Demender un conseil"
+            android:textColor="@color/black_434852"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-        android:id="@+id/nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photoM" />
 
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nom" />
-
-    <TextView
-        android:id="@+id/spec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
-
-    <TextView
-        android:id="@+id/exp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spec" />
 </androidx.constraintlayout.widget.ConstraintLayout>

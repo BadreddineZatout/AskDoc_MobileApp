@@ -12,7 +12,10 @@ data class Booking (
     @PrimaryKey
     val bookingId:Long,
     val bookingDate: Date?,
-    val bookingTime: String,
-    val doctorId:Long)
+    val bookingTime: String?,
+    val patientId: Int?,
+    val patientName:String?,
+    val doctorId:Long?
+)
 {
 }
