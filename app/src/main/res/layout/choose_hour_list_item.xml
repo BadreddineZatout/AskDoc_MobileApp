@@ -21,13 +21,15 @@
             <Button
                 android:id="@+id/hourItemBtn"
                 style="@style/Widget.AppCompat.Button"
-                android:textColorHighlight="@color/cardview_light_background"
                 android:layout_width="300dp"
                 android:layout_height="80dp"
-                android:textColor="#FFFFFF"
+                android:background="@color/orange_FEAE47"
+                android:fontFamily="@font/ubuntu_mono"
                 android:gravity="center"
                 android:tag=""
-                android:text="Heure" />
+                android:text="Heure"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="@color/cardview_light_background" />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
