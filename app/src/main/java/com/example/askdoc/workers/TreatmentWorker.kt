@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.work.ListenableWorker
 import androidx.work.WorkerParameters
 import androidx.work.impl.utils.futures.SettableFuture
+import com.example.askdoc.models.Conseil
 import com.example.askdoc.models.Traitement
 import com.example.askdoc.services.RetrofitService
 import com.example.askdoc.services.RoomService
@@ -20,7 +21,8 @@ WorkerParameters) : ListenableWorker(ctx, workParamters) {
     override fun startWork(): ListenableFuture<Result> {
         future = SettableFuture.create()
         offlineTreatemnts()
-        return future 
+        val conseils = RoomService.appDatabase.getConseilDao().getConsilsToSynchronize()
+        return future
     }
     fun offlineTreatemnts(){
         val call = RetrofitService.endpoint.getAllTreaitementOffline()

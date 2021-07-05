@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.example.askdoc.R
-import com.example.askdoc.baseUrl
 import com.example.askdoc.models.DoctorVm
 import kotlinx.android.synthetic.main.fragment_detail.*
 import java.util.*
@@ -41,7 +40,7 @@ class DetailFragment : Fragment() {
         val day = c.get(Calendar.DAY_OF_MONTH)
         var date = ""
 
-        btnConseil.setOnClickListener {
+        EnvoyerConseil.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_detailFragment_to_conseilFragment2)
         }
         btnrdv.setOnClickListener{
