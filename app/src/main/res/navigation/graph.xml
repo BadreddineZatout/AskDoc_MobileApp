@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph"
-    app:startDestination="@id/chooseDateFragment3">
+    app:startDestination="@id/listFragment">
 
     <fragment
         android:id="@+id/bookinCreatedFragment"
@@ -28,4 +28,28 @@
             android:id="@+id/action_chooseDateFragment3_to_chooseHourFragment2"
             app:destination="@id/chooseHourFragment2" />
     </fragment>
+    
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.askdoc.fragments.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.askdoc.fragments.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_conseilFragment2"
+            app:destination="@id/conseilFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/conseilFragment2"
+        android:name="com.example.askdoc.fragments.ConseilFragment"
+        android:label="fragment_conseil"
+        tools:layout="@layout/fragment_conseil" />
 </navigation>
