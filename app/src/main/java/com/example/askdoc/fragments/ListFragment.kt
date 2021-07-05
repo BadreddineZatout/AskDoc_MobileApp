@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.askdoc.R
 import com.example.askdoc.models.Doctor
@@ -32,6 +33,12 @@ class ListFragment : Fragment() {
         val vm= ViewModelProvider(requireActivity()).get(DoctorVm::class.java)
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
         getMedecins(vm)
+        showTreatmentsBtn.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_listFragment_to_treatmentsFragment)
+        }
+        showBookingsBtn.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_listFragment_to_bookingsFragment)
+        }
     }
     private fun getMedecins(vm:DoctorVm){
         val call= RetrofitService.endpoint.getMedecins()
