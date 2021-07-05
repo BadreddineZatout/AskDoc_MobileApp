@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.askdoc.R
 import com.example.askdoc.models.Conseil
 import com.example.askdoc.models.DoctorVm
+import com.example.askdoc.models.PatientVM
 import com.example.askdoc.services.RoomService
 import com.example.askdoc.workers.ConseilWorker
 import kotlinx.android.synthetic.main.fragment_conseil.*
@@ -30,7 +31,8 @@ class ConseilFragment : Fragment() {
         btnEnvoyer.setOnClickListener {
             val vm= ViewModelProvider(requireActivity()).get(DoctorVm::class.java)
             val iddoc = vm.doctor.doctorId
-            val c = Conseil(iddoc, 1, conseilText.text.toString())
+            val vmpat= ViewModelProvider(requireActivity()).get(PatientVM::class.java)
+            val c = Conseil(iddoc, vmpat.patient.id, conseilText.text.toString())
             RoomService.context = requireActivity()
             RoomService.appDatabase.getConseilDao().addConseil(c)
             scheduleSync()
@@ -40,8 +42,8 @@ class ConseilFragment : Fragment() {
         val constraints = Constraints.Builder().
         setRequiredNetworkType(NetworkType.CONNECTED).build()
         val req = OneTimeWorkRequest.Builder(ConseilWorker::class.java).
-        setConstraints(constraints).addTag("id").build()
+        setConstraints(constraints).addTag("conseil").build()
         val workManager = WorkManager.getInstance(requireActivity())
-        workManager.enqueueUniqueWork("work", ExistingWorkPolicy.REPLACE, req)
+        workManager.enqueueUniqueWork("workConseil", ExistingWorkPolicy.REPLACE, req)
     }
 }
