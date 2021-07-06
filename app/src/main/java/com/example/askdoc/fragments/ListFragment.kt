@@ -52,7 +52,11 @@ class ListFragment : Fragment() {
                     val data=response.body()
                     print(response.body())
                     if (data!=null){
-                        recyclerView.adapter = MyAdapter(requireActivity(),data,vm)
+                        try{
+                            recyclerView.adapter = MyAdapter(requireActivity(),data,vm)
+                        }catch (e:Exception){
+
+                        }
                     }
                 }
                 else {
