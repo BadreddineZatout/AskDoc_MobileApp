@@ -27,7 +27,6 @@ WorkerParameters) : ListenableWorker(ctx, workParamters) {
         try{
             offlineTreatemnts(patientId)
         }catch (err:Exception){}
-        val conseils = RoomService.appDatabase.getConseilDao().getConsilsToSynchronize()
         return future 
     }
     fun offlineTreatemnts(patientId:Int){
@@ -39,7 +38,7 @@ WorkerParameters) : ListenableWorker(ctx, workParamters) {
                     try{
                         val data = response.body()!!
                         RoomService.appDatabase.getTraitementDao().addTreatments(data)
-                        updateOffline(patientId)
+                        //updateOffline(patientId)
                     }catch (e:Exception){
 
                     }

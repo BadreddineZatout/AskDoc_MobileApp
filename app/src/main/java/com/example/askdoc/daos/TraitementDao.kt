@@ -9,6 +9,6 @@ interface TraitementDao {
     @Query("select * from Traitement where patientId=:id")
     fun getTreatments(id:Int):List<Traitement>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addTreatments(treatments:List<Traitement>)
 }
