@@ -21,17 +21,20 @@ WorkerParameters) : ListenableWorker(ctx, workParamters) {
     override fun startWork(): ListenableFuture<Result> {
         future = SettableFuture.create()
         val conseils = RoomService.appDatabase.getConseilDao().getConsilsToSynchronize()
-        addConseils(conseils[0])
+        addConseils(conseils)
         return future
     }
-    fun addConseils(conseil: Conseil){
-        val call = RetrofitService.endpoint.addConseil(conseil)
+    fun addConseils(conseils: List<Conseil>){
+        val call = RetrofitService.endpoint.addConseils(conseils)
         call.enqueue(object: Callback<Any> {
             @SuppressLint("RestrictedApi")
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 if(response?.isSuccessful){
-                    conseil.isSyncronized=1
-                    RoomService.appDatabase.getConseilDao().updateConseil(conseil)
+                    for (item in conseils) {
+                        item.isSyncronized = 1
+                    }
+                    RoomService.appDatabase.getConseilDao().updateConseils(conseils)
+                    future.set(Result.success())
                 }else{
                     future.set(Result.retry())
                 }

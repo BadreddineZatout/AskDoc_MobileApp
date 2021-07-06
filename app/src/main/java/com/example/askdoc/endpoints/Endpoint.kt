@@ -24,6 +24,9 @@ interface Endpoint {
     @POST("counsel")
     fun addConseil(@Body conseil: Conseil):Call<Any>
 
+    @POST("counsel/createMany")
+    fun addConseils(@Body conseils: List<Conseil>):Call<Any>
+
     @GET("treatment/offline/{id}")
     fun getAllTreaitementOffline(@Path ("id") id:Int):Call<List<Traitement>>
 

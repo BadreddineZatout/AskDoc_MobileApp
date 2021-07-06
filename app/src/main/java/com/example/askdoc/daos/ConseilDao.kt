@@ -15,6 +15,6 @@ interface ConseilDao {
     fun addConseil(conseil: Conseil)
 
     @Update
-    fun updateConseil(conseils: Conseil)
+    fun updateConseils(conseils: List<Conseil>)
 
 }
